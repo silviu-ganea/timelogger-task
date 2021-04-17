@@ -11,7 +11,17 @@ namespace TimeloggerApi.Data
             throw new System.NotImplementedException();
         }
 
+        public void CreateTimeEntry(TimeEntry timeEntry)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void DeleteProject(Project project)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteTimeEntry(TimeEntry timeEntry)
         {
             throw new System.NotImplementedException();
         }
@@ -26,9 +36,20 @@ namespace TimeloggerApi.Data
             };
             return projects;
         }
+
+        public IEnumerable<TimeEntry> GetAllTimeEntries()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Project GetProjectById(int id)
         {
             return new Project (0, "project 1", 2,"01/01/2000");
+        }
+
+        public TimeEntry GetTimeEntryById(int id)
+        {
+            throw new System.NotImplementedException();
         }
 
         public bool SaveChanges()

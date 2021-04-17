@@ -10,7 +10,7 @@ namespace TimeloggerApi.Profiles
         {
             //Source -> destination
             CreateMap<TimeEntry, TimeEntryDto>();
-            //CreateMap<TimeEntryCreateDto, TimeEntry>();
+            CreateMap<TimeEntryCreateDto, TimeEntry>();
         }
     }
 }
