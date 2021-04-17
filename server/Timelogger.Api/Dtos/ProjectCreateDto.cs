@@ -4,15 +4,13 @@ using Timelogger.Entities;
 
 namespace TimeloggerApi.Dto
 {
-public class ProjectDto
+public class ProjectCreateDto
 	{
-		public int id { get; set; }
-        [Required]
+		[Required]
 		public string name { get; set; }
-        [Required]
+		[Required]
 		public int totalHours { get; set; }
-        [Required]
+		[Required]
 		public string deadline { get; set; }
-		public IEnumerable<TimeEntryDto> TimeEntries{ get; set; }
 	}
 }

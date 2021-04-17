@@ -1,10 +1,21 @@
 using System.Collections.Generic;
 using Timelogger.Entities;
+using TimeloggerApi.Dto;
 
 namespace TimeloggerApi.Data
 {
     public class MockTimeLoggerRepo : ITimeLoggerRepo
     {
+        public void CreateProject(Project project)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteProject(Project project)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Project> GetAllProjects()
         {
             var projects = new List<Project>
@@ -18,6 +29,11 @@ namespace TimeloggerApi.Data
         public Project GetProjectById(int id)
         {
             return new Project (0, "project 1", 2,"01/01/2000");
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

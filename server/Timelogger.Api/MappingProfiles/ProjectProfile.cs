@@ -8,7 +8,9 @@ namespace TimeloggerApi.Profiles
     {
         public ProjectProfile()
         {
+            //Source -> destination
             CreateMap<Project, ProjectDto>();
+            CreateMap<ProjectCreateDto, Project>();
         }
     }
 }
