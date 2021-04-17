@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using Timelogger.Entities;
+using System.Collections.Generic;
+using TimeloggerApi.Data;
 
 namespace Timelogger.Api
 {
@@ -38,7 +40,8 @@ namespace Timelogger.Api
 			});
 
 			services.AddMvc(options => options.EnableEndpointRouting = false);
-
+			services.AddAutoMapper(typeof(Startup).Assembly);
+			services.AddScoped<ITimeLoggerRepo, TimeLoggerRepo>();
 			if (_environment.IsDevelopment())
 			{
 				services.AddCors();
@@ -69,12 +72,7 @@ namespace Timelogger.Api
 		private static void SeedDatabase(IServiceScope scope)
 		{
 			var context = scope.ServiceProvider.GetService<ApiContext>();
-			var testProject1 = new Project
-			{
-				Id = 1,
-				Name = "e-conomic Interview"
-			};
-
+			var testProject1 = new Project (1, "e-conomic interview", 0, "20/03/2012");
 			context.Projects.Add(testProject1);
 
 			context.SaveChanges();
