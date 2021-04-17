@@ -1,4 +1,5 @@
 import React from 'react'
+import {IProject} from "../interfaces/IProject"
 
 export default function FormInput(props : {name : string}) {
     return (
