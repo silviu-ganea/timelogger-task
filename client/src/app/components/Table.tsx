@@ -1,7 +1,9 @@
 import React from 'react';
 import { IProject } from '../interfaces/IProject';
+import { useProjectContext } from '../context';
 
-export default function Table({projects} : {projects : IProject[]}) {
+export default function Table() {
+	const {projects} = useProjectContext();
 	return (
 		<table className="table-fixed w-full">
 			<thead className="bg-gray-200">

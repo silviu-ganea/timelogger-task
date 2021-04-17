@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import AddProject from './views/AddProject'
 import AddTime from './views/AddTime'
 import ButtonAdd from './components/ButtonAdd';
+import { ProjectProvider } from './context';
 
 export default function App() {
     const [projects , setProjects] = React.useState<IProject[]>(
@@ -36,7 +37,7 @@ export default function App() {
             
             <main>
                 <div className="container mx-auto">
-                    
+                <ProjectProvider>    
                     <Router>
                     <div className="flex items-center my-6">
                         <div className="inline-flex space-x-4" >
@@ -47,11 +48,12 @@ export default function App() {
                     </div>
                         
                         <Switch>
-                            <Route path="/" exact><Projects projects = {projects} /></Route>
+                            <Route path="/" exact  component={Projects} />
                             <Route path="/addTime" component={AddTime} />
                             <Route path="/addProject" component={AddProject} />
                         </Switch>
-                    </Router>                   
+                    </Router>
+                </ProjectProvider>                       
                 </div>
             </main>
         </>
