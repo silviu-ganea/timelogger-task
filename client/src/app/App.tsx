@@ -1,3 +1,4 @@
+import '../styling/customStyle.css';
 import * as React from 'react';
 import Projects from './views/Projects';
 import './tailwind.generated.css';
@@ -22,8 +23,8 @@ export default function App() {
                 <div className="container mx-auto">
                 <ProjectProvider>    
                     <Router>
-                    <div className="flex items-center my-6">
-                        <div className="inline-flex space-x-4" >
+                    <div className="flex ">
+                        <div className="navigation " >
                             <ButtonAdd urlTo={"/"} btnText = {"Projects"} /> 
                             <ButtonAdd urlTo={"/addTime"} btnText = {"Add Time"} /> 
                             <ButtonAdd urlTo={"/addProject"} btnText = {"Add Project"} /> 

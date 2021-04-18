@@ -1,13 +1,17 @@
-import React ,{useEffect} from 'react';
+import React ,{useEffect, useState} from 'react';
 import { useProjectContext } from '../context';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import ProjectDetail from '../views/ProjectDetail';
 
 export default function Projects() {
-	const {projects, fetchProjects} = useProjectContext();
+	const {projects, fetchProjects, setProjects} = useProjectContext();
+	const [sortDirection, setSortDirection] = useState(-1);
 	useEffect(() => {
 		fetchProjects();
 	}, [])
+	const sortByDeadline=() =>{
+		setSortDirection(sortDirection * -1);
+	}
 	return (
 		<Router>
 			<Switch>
@@ -18,11 +22,11 @@ export default function Projects() {
 								<th className="border px-4 py-2 w-12">#</th>
 								<th className="border px-4 py-2">Project Name</th>
 								<th className="border px-4 py-2">TotalHours</th>
-								<th className="border px-4 py-2">Deadline</th>
+								<th onClick={sortByDeadline} className="border px-4 py-2">Deadline</th>
 							</tr>
 						</thead>
 						<tbody>
-							{projects.map((project) => 
+							{[...projects].sort((a, b) => (Date.parse(a.deadline) > Date.parse(b.deadline) ? 1 : -1) * sortDirection).map((project) => 
 								<tr key = {project.id}>
 									<td className="border px-4 py-2">{project.id}</td>
 									<td className="border px-4 py-2"><Link to={`/projectdetail/${project.id}`}>{project.name}</Link></td>

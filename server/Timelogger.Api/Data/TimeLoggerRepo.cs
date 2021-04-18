@@ -26,6 +26,8 @@ namespace TimeloggerApi.Data
         {
             if(timeEntry == null) throw new ArgumentNullException(nameof(timeEntry));
             _context.TimeEntries.Add(timeEntry);
+            var project = _context.Projects.FirstOrDefault(p=>p.id == timeEntry.projectId);
+            project.totalHours += timeEntry.hours;
         }
 
         public void DeleteProject(Project project)

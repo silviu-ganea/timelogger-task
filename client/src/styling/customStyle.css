@@ -1,0 +1,8 @@
+.navigation {
+    display: flex;
+    /* This aligns items to the end line on main-axis */
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 352px;
+    height : 40px;
+  }

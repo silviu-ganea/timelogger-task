@@ -27,9 +27,9 @@ function ProjectDetail ({match}){
         <thead className="bg-gray-200">
           <tr>
             <th className="border px-4 py-2 w-12">#</th>
-            <th className="border px-4 py-2">description</th>
-            <th className="border px-4 py-2">hours</th>
-            <th className="border px-4 py-2">date added</th>
+            <th className="border px-4 py-2">Description</th>
+            <th className="border px-4 py-2">Hours</th>
+            <th className="border px-4 py-2">Date added</th>
           </tr>
         </thead>
         <tbody>

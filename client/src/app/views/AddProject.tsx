@@ -20,7 +20,7 @@ function AddProject() {
                     <label htmlFor="totalHours" className="block text-xs font-semibold text-gray-600 uppercase">total Hours</label>
                     <input id="totalHours" type="number" value={newProject.totalHours || ''} onChange={e => setNewProject({...newProject, totalHours: e.target.valueAsNumber })} name="totalHours" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                     <label htmlFor="deadline" className="block text-xs font-semibold text-gray-600 uppercase">deadline</label>
-                    <input id="deadline" type="text" value={newProject.deadline || ''} onChange={e => setNewProject({...newProject, deadline: e.target.value })} name="deadline" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+                    <input id="deadline" type="date" value={newProject.deadline || ''} onChange={e => setNewProject({...newProject, deadline: e.target.value })} name="deadline" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                     <button type="submit"  className="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">Add Project</button>
                 </form>
             </div>
