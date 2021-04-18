@@ -1,32 +1,15 @@
 import * as React from 'react';
 import Projects from './views/Projects';
 import './tailwind.generated.css';
-import { IProject } from './interfaces/IProject';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import AddProject from './views/AddProject'
 import AddTime from './views/AddTime'
 import ButtonAdd from './components/ButtonAdd';
 import { ProjectProvider } from './context';
 
 export default function App() {
-    const [projects , setProjects] = React.useState<IProject[]>(
-        [
-            {
-                id : 1,
-                name : "project1",
-                totalHours : 25,
-                deadline : "maine",
-                timeEntries : []  
-            },
-            {
-                id : 2,
-                name : "project2",
-                totalHours : 32,
-                deadline : "poimaine",
-                timeEntries : []  
-            }
-        ]
-    );
+    const axios = require('axios').default;
+    axios.defaults.baseURL = 'http://localhost:3001/api/';
     return (
         <>
             <header className="bg-gray-900 text-white flex items-center h-12 w-full">
@@ -46,7 +29,6 @@ export default function App() {
                             <ButtonAdd urlTo={"/addProject"} btnText = {"Add Project"} /> 
                         </div>
                     </div>
-                        
                         <Switch>
                             <Route path="/" exact  component={Projects} />
                             <Route path="/addTime" component={AddTime} />

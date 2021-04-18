@@ -54,7 +54,9 @@ namespace TimeloggerApi.Data
 
         public Project GetProjectById(int id)
         {
-            return _context.Projects.FirstOrDefault(p => p.id == id);
+            var project = _context.Projects.FirstOrDefault(p => p.id == id);
+            project.timeEntries = _context.TimeEntries.Where(t => t.projectId == project.id).ToList();
+            return project;
         }
 
         public TimeEntry GetTimeEntryById(int id)
