@@ -12,7 +12,6 @@ const useProjects = (initial: IProject[] = []) => {
     axios.get('/projects')
     .then(function (response) {
       setProjects(response.data);
-      console.log(response.data);
     })
     .catch(function (error) {
       // handle error
@@ -30,7 +29,7 @@ const useProjects = (initial: IProject[] = []) => {
       deadline: newProject.deadline
     })
     .then((response) => {
-      console.log(response);
+      
     }, (error) => {
       console.log(error);
     });
@@ -44,7 +43,7 @@ const useProjects = (initial: IProject[] = []) => {
       description: newTimeEntry.description
     })
     .then((response) => {
-      console.log(response);
+      
     }, (error) => {
       console.log(error);
     });

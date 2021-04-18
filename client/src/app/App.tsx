@@ -7,6 +7,7 @@ import AddProject from './views/AddProject'
 import AddTime from './views/AddTime'
 import ButtonAdd from './components/ButtonAdd';
 import { ProjectProvider } from './context';
+import ProjectDetail from './views/ProjectDetail';
 
 export default function App() {
     const axios = require('axios').default;
@@ -34,6 +35,7 @@ export default function App() {
                             <Route path="/" exact  component={Projects} />
                             <Route path="/addTime" component={AddTime} />
                             <Route path="/addProject" component={AddProject} />
+                            <Route path="/projectDetail/:projectId" component={ProjectDetail} />
                         </Switch>
                     </Router>
                 </ProjectProvider>                       

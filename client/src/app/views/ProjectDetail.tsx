@@ -5,11 +5,9 @@ function ProjectDetail ({match}){
     const [project, setProject] = React.useState<IProject>();
     const fetchTimeEntries = () =>{
         const axios = require('axios').default;
-        console.log(match);
         axios.get(`/projects/${match.params.projectId}`)
         .then(function (response) {
           setProject(response.data);
-          console.log(response.data);
         })
         .catch(function (error) {
           // handle error
@@ -23,6 +21,8 @@ function ProjectDetail ({match}){
 		  fetchTimeEntries();
   	}, [])
     return (
+      <>
+      <h1>Time logged for : {project?.name}</h1>
       <table className="table-fixed w-full">
         <thead className="bg-gray-200">
           <tr>
@@ -34,17 +34,16 @@ function ProjectDetail ({match}){
         </thead>
         <tbody>
           {project?.timeEntries.map((timeEntry) => 
-              
             <tr key = {timeEntry.id}>
                 <td className="border px-4 py-2">{timeEntry.id}</td>
                 <td className="border px-4 py-2">{timeEntry.description}</td>
                 <td className="border px-4 py-2">{timeEntry.hours}</td>
                 <td className="border px-4 py-2">{timeEntry.dateAdded}</td>
-            </tr>
-              
+            </tr> 
           )}
         </tbody>
 		  </table>
+      </>
     )
 }
 export default ProjectDetail;

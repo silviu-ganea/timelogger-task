@@ -2,7 +2,7 @@ import React from 'react'
 import { useProjectContext } from '../context';
 
 function AddProject() {
-    const {newProject,setNewProject, addProject, createProject} = useProjectContext();
+    const {newProject,setNewProject, createProject} = useProjectContext();
 
     const formSubmitHandler = (e) =>{
         e.preventDefault();
